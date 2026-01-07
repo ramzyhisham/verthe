@@ -175,6 +175,14 @@
   overflow: hidden;
   border-right: 3px solid rgba(107, 62, 46, 0.6);
 }
+    @keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.birthday-text {
+  animation: blink 1s step-end infinite;
+}
+
 
   </style>
 </head>
@@ -183,7 +191,7 @@
 
   <!-- HERO -->
   <section>
-    <h1 class="birthday-text">
+    <h1 class="birthday-text" id="typewriter">
   Happy Birthday 🎂
 </h1>
 
@@ -252,18 +260,21 @@ I’m always grateful that our paths crossed.
   </footer>
   
 <script>
-  function startCelebration() {
-    const memories = document.getElementById("memories");
+  const text = "Happy Birthday 🎂";
+  const speed = 100; // typing speed in ms
+  let index = 0;
 
-    // reveal memories
-    memories.classList.add("show");
-
-    // smooth scroll after reveal
-    setTimeout(() => {
-      memories.scrollIntoView({ behavior: "smooth" });
-    }, 300);
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
   }
+
+  window.onload = typeWriter;
 </script>
+
 
 </body>
 </html>
