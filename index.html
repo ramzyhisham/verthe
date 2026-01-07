@@ -80,20 +80,24 @@
       transform: scale(1.08);
     }
 
-    .caption {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      font-size: 1rem;
-      padding: 10px;
-      text-align: center;
-    }
+   .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0)
+  );
+  color: #fff;
+  padding: 12px 10px;
+  font-size: 0.9rem;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 
     .photo:hover .caption {
       opacity: 1;
@@ -148,6 +152,18 @@
   }
 }
 
+.hidden-section {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hidden-section.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
   </style>
 </head>
@@ -165,11 +181,11 @@
       your kindness, chaos, and everything that makes you special.
     </p>
 
-    <a href="#memories" class="btn">Start the Celebration 🎉</a>
+    <a href="#memories" class="btn" onclick="startCelebration()">Start the Celebration 🎉</a>
   </section>
 
   <!-- MEMORIES -->
-  <section id="memories">
+  <section id="memories" class="hidden-section">
     <h2>Our Memories 📸</h2>
 
     <div class="grid">
@@ -200,11 +216,22 @@
     <div class="card">
       <h2>A Note for You 💌</h2>
       <p>
-        I don’t say this enough, but having you in my life
-        makes things lighter, funnier, and more real.
-        Thank you for being exactly who you are —
-        never change that.
-      </p>
+I don’t know if I say this enough, but you genuinely make life easier.
+You’re the person I can talk to without thinking twice, laugh with
+without pretending, and sit in silence without it feeling awkward.
+
+Thank you for being there on the good days, the confusing days,
+and the days where nothing made sense.
+Thank you for understanding me even when I don’t explain properly.
+
+I hope this year gives you moments that make you smile for no reason,
+people who choose you the way you deserve,
+and peace that stays longer than just a moment.
+
+No matter where life takes us,
+I’m always grateful that our paths crossed.
+</p>
+
     </div>
   </section>
 
@@ -212,6 +239,20 @@
   <footer>
     Always cheering for you, always proud of you 💛
   </footer>
+  
+<script>
+  function startCelebration() {
+    const memories = document.getElementById("memories");
+
+    // reveal memories
+    memories.classList.add("show");
+
+    // smooth scroll after reveal
+    setTimeout(() => {
+      memories.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  }
+</script>
 
 </body>
 </html>
