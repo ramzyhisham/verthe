@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -120,7 +121,6 @@
     }
 
     @media screen and (max-width: 600px) {
-  h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   p { font-size: 1rem; }
 
@@ -138,34 +138,16 @@
 }
 
 }
-
-    .birthday-text {
-  font-size: 2.6rem;
-  animation: fadeSlide 1.6s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+    
     .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+      text-align: center;
 }
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    .birthday-text {
+.birthday-text {
   font-family: 'Playfair Display', serif;
   font-size: 3.8rem;
   font-weight: 700;
@@ -175,14 +157,6 @@
   overflow: hidden;
   border-right: 3px solid rgba(107, 62, 46, 0.6);
 }
-    @keyframes blink {
-  50% { border-color: transparent; }
-}
-
-.birthday-text {
-  animation: blink 1s step-end infinite;
-}
-
 
   </style>
 </head>
@@ -190,10 +164,8 @@
 <body>
 
   <!-- HERO -->
-  <section>
-    <h1 class="birthday-text" id="typewriter">
-  Happy Birthday 🎂
-</h1>
+  <section class="hero">
+   <h1 class="birthday-text" id="typewriter"></h1>
 
     <p>
       Today is all about celebrating you —
@@ -261,20 +233,24 @@ I’m always grateful that our paths crossed.
   
 <script>
   const text = "Happy Birthday 🎂";
-  const speed = 100; // typing speed in ms
+  const speed = 100;
   let index = 0;
 
   function typeWriter() {
+    const el = document.getElementById("typewriter");
+
     if (index < text.length) {
-      document.getElementById("typewriter").innerHTML += text.charAt(index);
+      el.textContent += text.charAt(index);
       index++;
       setTimeout(typeWriter, speed);
+    } else {
+      // remove cursor after typing
+      el.style.borderRight = "none";
     }
   }
 
   window.onload = typeWriter;
 </script>
-
 
 </body>
 </html>
