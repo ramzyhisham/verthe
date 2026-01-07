@@ -133,6 +133,10 @@
     padding: 12px 24px;
     font-size: 1rem;
   }
+      .birthday-text {
+  font-size: 2.6rem;
+}
+
 }
 
     .birthday-text {
@@ -152,17 +156,24 @@
   }
 }
 
-.hidden-section {
-  opacity: 0;
-  transform: translateY(40px);
-  pointer-events: none;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+    .hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hidden-section.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    .birthday-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid rgba(107, 62, 46, 0.6);
 }
 
   </style>
@@ -181,11 +192,11 @@
       your kindness, chaos, and everything that makes you special.
     </p>
 
-    <a href="#memories" class="btn" onclick="startCelebration()">Start the Celebration 🎉</a>
+    <a href="#memories" class="btn">Start the Celebration 🎉</a>
   </section>
 
   <!-- MEMORIES -->
-  <section id="memories" class="hidden-section">
+  <section id="memories">
     <h2>Our Memories 📸</h2>
 
     <div class="grid">
