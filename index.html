@@ -143,14 +143,17 @@
 .hero {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 40px 20px;
+  justify-content: center;
+  padding: 0 20px;   /* remove vertical padding */
 }
-
-
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;        /* controls spacing cleanly */
+  max-width: 700px;
+}
 
 .birthday-text {
   font-family: 'Playfair Display', serif;
@@ -171,7 +174,8 @@
 
   <!-- HERO -->
   <section class="hero">
-   <h1 class="birthday-text" id="typewriter"></h1>
+  <div class="hero-content">
+    <h1 class="birthday-text" id="typewriter"></h1>
 
     <p>
       Today is all about celebrating you —
@@ -179,7 +183,9 @@
     </p>
 
     <a href="#memories" class="btn">Start the Celebration 🎉</a>
-  </section>
+  </div>
+</section>
+
 
   <!-- MEMORIES -->
   <section id="memories">
